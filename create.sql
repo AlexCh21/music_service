@@ -21,8 +21,7 @@ create table if not exists album (
 	id_album serial primary key,
 	name varchar(30) not null,
 	release_year date not null,
-	id_nick integer references nickname(id_nick),
-	id_genre integer references genre(id_genre)
+	id_nick integer references nickname(id_nick)
 );
 create table if not exists album_nickname (
 	id  serial primary key,
@@ -45,7 +44,6 @@ create table if not exists collection (
 	id_nick integer references nickname(id_nick)
 );
 create table if not exists collections_album_track (
-	id serial primary key,
 	id_collection integer not null references collection(id_collection),
 	id_album integer not null references album(id_album),
 	id_track integer not null references track(id_track),
